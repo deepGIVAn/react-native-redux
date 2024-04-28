@@ -16,7 +16,7 @@ const ProductScreenDetails = () => {
   const { width } = useWindowDimensions();
 
   const addtoCart = () => {
-    console.warn("hello"); // to see on mobile also..
+    console.warn("hello"); // to see on mobile also....
   };
 
   return (
