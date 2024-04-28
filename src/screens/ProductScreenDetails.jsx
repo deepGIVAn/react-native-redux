@@ -11,15 +11,18 @@ import {
 } from "react-native";
 import products from "../data/products";
 import { useSelector, useDispatch } from "react-redux";
+import { addCartItem } from "../store/cartSlice";
 
 const ProductScreenDetails = () => {
   // const product = products[0];
   const product = useSelector((state) => state.products.selectedProduct);
+  const dispatch = useDispatch();
 
   const { width } = useWindowDimensions();
 
   const addtoCart = () => {
-    console.warn("hello"); // to see on mobile also....
+    // console.warn("hello"); // to see on mobile also....
+    dispatch(addCartItem({ product: product }));
   };
 
   return (

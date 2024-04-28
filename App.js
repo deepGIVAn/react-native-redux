@@ -7,27 +7,8 @@ import { store } from "./src/store";
 export default function App() {
   return (
     <Provider store={store}>
-      <View style={styles.container}>
-        <Navigation />
-        <StatusBar style="auto" />
-      </View>
+      <Navigation />
+      <StatusBar style="auto" />
     </Provider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    // alignItems: "center",
-    // justifyContent: "center",
-  },
-  image: {
-    width: "100%",
-    aspectRatio: 1,
-  },
-  itemContainer: {
-    width: "50%",
-    padding: 1,
-  },
-});

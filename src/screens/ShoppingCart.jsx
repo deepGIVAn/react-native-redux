@@ -7,30 +7,40 @@ import {
   Text,
   View,
 } from "react-native";
-import cart from "../data/cart";
+// import cart from "../data/cart";
 import CartListItem from "../components/CartListItem";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  selectDeliveryFee,
+  selectSubTotal,
+  selectTotal,
+} from "../store/cartSlice";
 
 const ShoppingCartTotals = () => {
+  const subTotal = useSelector(selectSubTotal);
+  const deleiveryFee = useSelector(selectDeliveryFee);
+  const total = useSelector(selectTotal);
+
   return (
     <View style={styles.totalContainer}>
       <View style={styles.row}>
         <Text style={styles.text}>Subtotal</Text>
-        <Text style={styles.text}>410,00 $</Text>
+        <Text style={styles.text}>$ {subTotal}</Text>
       </View>
       <View style={styles.row}>
         <Text style={styles.text}>Delivery</Text>
-        <Text style={styles.text}>10 $</Text>
+        <Text style={styles.text}>$ {deleiveryFee}</Text>
       </View>
       <View style={styles.row}>
         <Text style={styles.text}>Total</Text>
-        <Text style={styles.textBold}>410,10 $</Text>
+        <Text style={styles.textBold}>$ {total}</Text>
       </View>
     </View>
   );
 };
 
 const ShoppingCart = () => {
-  // const
+  const cart = useSelector((state) => state.cart.items);
 
   return (
     <>
