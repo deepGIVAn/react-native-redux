@@ -1,14 +1,22 @@
 import React from "react";
 import products from "../data/products";
-import { FlatList, Image, StyleSheet, View } from "react-native";
+import { FlatList, Image, StyleSheet, View, Pressable } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
+// const ProductScreen = ({ navigation }) => {
 const ProductScreen = () => {
+  const navigation = useNavigation();
+  // u will get the navigation prop on only screens directly connected to the navigation component
+
   return (
     <>
       <FlatList
         data={products}
         renderItem={({ item }) => (
-          <View style={styles.itemContainer}>
+          <Pressable
+            onPress={() => navigation.navigate("Product Details")}
+            style={styles.itemContainer}
+          >
             <Image
               source={{
                 // uri: "https://plus.unsplash.com/premium_photo-1669689974101-55f9aea22158?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHx8",
@@ -16,7 +24,7 @@ const ProductScreen = () => {
               }}
               style={styles.image}
             />
-          </View>
+          </Pressable>
         )}
         numColumns={2}
       />

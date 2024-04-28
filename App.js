@@ -1,15 +1,11 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
-import ProductScreen from "./src/screens/ProductScreen";
-import ProductScreenDetails from "./src/screens/ProductScreenDetails";
-import ShoppingCart from "./src/screens/ShoppingCart";
+import Navigation from "./src/Navigation";
 
 export default function App() {
   return (
     <View style={styles.container}>
-      {/* <ProductScreen /> */}
-      {/* <ProductScreenDetails /> */}
-      <ShoppingCart />
+      <Navigation />
       <StatusBar style="auto" />
     </View>
   );
