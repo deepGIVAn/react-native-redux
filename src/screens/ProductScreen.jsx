@@ -1,12 +1,17 @@
 import React from "react";
-import products from "../data/products";
+// import products from "../data/products";
 import { FlatList, Image, StyleSheet, View, Pressable } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { useSelector, useDispatch } from "react-redux";
+import { setSelectedProduct } from "../store/productsSlice";
 
 // const ProductScreen = ({ navigation }) => {
+// u will get the navigation prop on only screens directly connected to the navigation component
+
 const ProductScreen = () => {
   const navigation = useNavigation();
-  // u will get the navigation prop on only screens directly connected to the navigation component
+  const products = useSelector((state) => state.products.products);
+  const dispatch = useDispatch();
 
   return (
     <>
@@ -14,7 +19,11 @@ const ProductScreen = () => {
         data={products}
         renderItem={({ item }) => (
           <Pressable
-            onPress={() => navigation.navigate("Product Details")}
+            onPress={() => {
+              // dispatch..
+              dispatch(setSelectedProduct(item.id));
+              navigation.navigate("Product Details");
+            }}
             style={styles.itemContainer}
           >
             <Image
